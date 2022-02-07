@@ -4,3 +4,8 @@
 - On n'a que 9% de données de test ? Si pas suffisant réduire le train pour avoir plus de test ? 
 - Prétraitement des données
 - Réfléchir à des modèles
+- min and max_df
+- spacy & nltk 
+- supprimer les @ 
+- supprimer les liens ?
+- utiliser la norme 2 ou plus ? pour mettre en avant les "grosses" erreurs
