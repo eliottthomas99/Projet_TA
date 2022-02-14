@@ -9,3 +9,13 @@
 - supprimer les @ 
 - supprimer les liens ?
 - utiliser la norme 2 ou plus ? pour mettre en avant les "grosses" erreurs
+- augmentation de données ?
+- citer en sources : le mooc, le preprocessing de tweets sur kaggle
+- ensembling ?
+- https://www.kaggle.com/sreejiths0/efficient-tweet-preprocessing
+- changer la fonction d'erreur pour prendre en compte que les classes plus proches sont plus proches  -> peut être simplement mettre des chiffres 
+- Se renseigner sur l'attribution originelle des notes. Qu'est ce qui fait qu'un tweet est positif ou très positif ? 
+- Version de scikit_learn >= 0.23.2
+- Les Hashtags sont mals supprimés. ex : as #coronavirus-fearing shoppers ==> as fearing shoppers
+- Vérifier la cohérance des notes données par les noteurs
+
