@@ -19,3 +19,29 @@
 - Les Hashtags sont mals supprimés. ex : as #coronavirus-fearing shoppers ==> as fearing shoppers
 - Vérifier la cohérance des notes données par les noteurs
 
+
+- Lemmatisation ?
+- GRU ?
+- LSTM ?
+- Word to vec ? 
+
+
+- Change from 5 to 3 classes ? Or compare ?
+
+
+- Add EDA phase (fancy stuff)
+- Add some visualisation
+- Mettre des titres sur nos graphiques, ***vraiment*** !!!
+
+
+Liste des modèles : 
+
+- Perceptron
+- SGDClassifier
+- LinearSVC
+
+
+Faire 5 ou 6 modèles "naifs" basés sur le cours 
+
+Un modèle "à la main" 
+
