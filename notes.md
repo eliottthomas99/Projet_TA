@@ -43,6 +43,8 @@ Liste des modèles :
 - Perceptron
 - SGDClassifier
 - LinearSVC
+
+
 - Random forests
 - Logistic Regression
 
