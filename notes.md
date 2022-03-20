@@ -1,3 +1,7 @@
+https://www.kaggle.com/datatattle/covid-19-nlp-text-classification
+
+https://medium.com/@kocur4d/hyper-parameter-tuning-with-pipelines-5310aff069d6
+
 - tf idf
 - Vader
 - latin !! (encoding)
@@ -39,9 +43,12 @@ Liste des modèles :
 - Perceptron
 - SGDClassifier
 - LinearSVC
+- Random forests
+- Logistic Regression
 
 
 Faire 5 ou 6 modèles "naifs" basés sur le cours 
+
 
 Un modèle "à la main" 
 
