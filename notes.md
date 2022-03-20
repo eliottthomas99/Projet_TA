@@ -48,9 +48,11 @@ Liste des modèles :
 - Random forests
 - Logistic Regression
 
+- VotingClassifier ? -> pondéré ?
+
 
 Faire 5 ou 6 modèles "naifs" basés sur le cours 
 
 
-Un modèle "à la main" 
+Un modèle "à la main" avec des LSTM, GRU basé sur les meilleurs de kaggle
 
