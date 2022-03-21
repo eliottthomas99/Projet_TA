@@ -30,7 +30,7 @@ https://medium.com/@kocur4d/hyper-parameter-tuning-with-pipelines-5310aff069d6
 - Word to vec ? 
 
 
-- Change from 5 to 3 classes ? Or compare ?
+- **Change from 5 to 3 classes ? Or compare ?**
 
 
 - Add EDA phase (fancy stuff)
@@ -49,6 +49,9 @@ Liste des modèles :
 - Logistic Regression
 
 - VotingClassifier ? -> pondéré ?
+
+
+- Sauvergarder les poids dans un fichier json et pas devoir tout refaire à chaque fois
 
 
 Faire 5 ou 6 modèles "naifs" basés sur le cours 
