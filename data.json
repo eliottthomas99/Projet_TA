@@ -1,0 +1,20 @@
+{
+    "SVC": {
+        "svc_clf__dual": false,
+        "svc_clf__loss": "squared_hinge",
+        "svc_clf__penalty": "l1"
+    },
+    "Perceptron": {
+        "per_clf__alpha": 1e-05,
+        "per_clf__penalty": "l1"
+    },
+    "RF": {
+        "rf_clf__criterion": "gini",
+        "rf_clf__max_depth": 300,
+        "rf_clf__max_features": "log2",
+        "rf_clf__min_samples_leaf": 1,
+        "rf_clf__min_samples_split": 4,
+        "rf_clf__n_estimators": 100,
+        "rf_clf__warm_start": true
+    }
+}
