@@ -1,27 +1,27 @@
 {
     "SGD": {
-        "clf__alpha": 1.5873684210526315e-05,
+        "clf__alpha": 1e-05,
         "clf__penalty": "l1"
     },
     "RF": {
-        "rf_clf__criterion": "entropy",
+        "rf_clf__criterion": "gini",
         "rf_clf__max_depth": 300,
         "rf_clf__max_features": "sqrt",
         "rf_clf__min_samples_leaf": 2,
-        "rf_clf__min_samples_split": 32,
+        "rf_clf__min_samples_split": 8,
         "rf_clf__n_estimators": 100,
-        "rf_clf__warm_start": true
+        "rf_clf__warm_start": false
     },
     "GB": {
         "gb_clf__learning_rate": 0.2,
-        "gb_clf__n_estimators": 800
+        "gb_clf__n_estimators": 100
     },
     "LR": {
         "lr_clf__C": 10,
-        "lr_clf__tol": 1e-08
+        "lr_clf__tol": 1e-06
     },
     "Perceptron": {
-        "per_clf__alpha": 5.272631578947369e-06,
+        "per_clf__alpha": 1e-05,
         "per_clf__penalty": "l1"
     },
     "SVC": {
