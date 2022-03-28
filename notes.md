@@ -20,17 +20,23 @@ https://medium.com/@kocur4d/hyper-parameter-tuning-with-pipelines-5310aff069d6
 - changer la fonction d'erreur pour prendre en compte que les classes plus proches sont plus proches  -> peut être simplement mettre des chiffres 
 - Se renseigner sur l'attribution originelle des notes. Qu'est ce qui fait qu'un tweet est positif ou très positif ? 
 - Version de scikit_learn >= 0.23.2
-- Les Hashtags sont mals supprimés. ex : as #coronavirus-fearing shoppers ==> as fearing shoppers
+
+
+**- Les Hashtags sont mals supprimés. ex : as #coronavirus-fearing shoppers ==> as fearing shoppers**
+piste : tokeniser avec spacy
+
 - Vérifier la cohérance des notes données par les noteurs
 
 
 - Lemmatisation ?
-- GRU ?
-- LSTM ?
-- Word to vec ? 
 
 
-- **Change from 5 to 3 classes ? Or compare ?**
+trucs de luca
+
+
+
+
+- **Change from 5 to 3 classes ? Or compare ?**  --> compare methods efficiency for each nuber of class
 
 - preprocessing 
 - Add EDA phase (fancy stuff)
@@ -40,15 +46,19 @@ https://medium.com/@kocur4d/hyper-parameter-tuning-with-pipelines-5310aff069d6
 
 Liste des modèles : 
 
-- Perceptron
-- SGDClassifier
-- LinearSVC
+- Perceptron BAD  (but fast)
+- SGDClassifier   GOOD
+- LinearSVC   GOOD
 
 
-- Random forests
-- Logistic Regression
+- Random forests   BAD
+- Logistic Regression  GOOD (but long)
 
-- VotingClassifier ? -> pondéré ?
+- VotingClassifier ? -> pondéré ?  GOOD (take the best one)
+
+
+
+
 - Entrainer sur tout le train (apres grid search) et test sur données de test  
 - Faire un script pour les modèles 
 
@@ -59,4 +69,13 @@ Faire 5 ou 6 modèles "naifs" basés sur le cours
 
 
 Un modèle "à la main" avec des LSTM, GRU basé sur les meilleurs de kaggle
+
+- GRU ?
+- LSTM ?
+- Word to vec ? 
+
+
+
+k fold sur les données ??? -> très long de tout faire tourner k fois 
+
 
