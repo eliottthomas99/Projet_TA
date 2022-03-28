@@ -76,6 +76,17 @@ Un modèle "à la main" avec des LSTM, GRU basé sur les meilleurs de kaggle
 
 
 
+
+
 k fold sur les données ??? -> très long de tout faire tourner k fois 
+
+
+
+
+TODO : 
+
+- Visualisation
+- fancy model + lemmatisation
+
 
 

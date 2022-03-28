@@ -3,7 +3,9 @@
 
 import pandas as pd
 import preprocessor as p
+import spacy
 
+iter 
 
 def preprocess_tweet(row):
     """
@@ -30,6 +32,29 @@ def give_number_to_class(row):
         return 1
 
 
+
+
+def lemmatisation(text,nlp):
+    """
+    lemmatising !!!
+    """
+    doc = nlp(text)
+    out = "" 
+    for token in doc:
+        lemme =  token.lemma_
+        out += lemme+" "
+    out=out[:len(out)-1]
+
+    iter+=1
+    if(iter%100==0):
+        print(iter)
+
+    return out
+    
+
+    
+
+
 def prepare_dataframe(file_name):
     """
     Function that allows to prepare the two dataframe for models
@@ -53,6 +78,19 @@ def prepare_dataframe(file_name):
     data_df['Sentiment_Number'] = data_df.apply(give_number_to_class, axis=1)
 
     X_df = data_df['OriginalTweet']
-    Y_df = data_df['Sentiment_Number']
+    y_df = data_df['Sentiment_Number']
 
-    return X_df, Y_df
+
+    # Lemmatisation
+
+    nlp = spacy.load('en_core_web_sm')
+
+    X_df.apply(lemmatisation , args=(nlp,)) 
+
+    
+    print(X_df)
+
+
+
+
+    return X_df, y_df
