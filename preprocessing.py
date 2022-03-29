@@ -4,8 +4,8 @@
 import pandas as pd
 import preprocessor as p
 import spacy
+from tqdm import tqdm
 
-iter 
 
 def preprocess_tweet(row):
     """
@@ -45,17 +45,13 @@ def lemmatisation(text,nlp):
         out += lemme+" "
     out=out[:len(out)-1]
 
-    iter+=1
-    if(iter%100==0):
-        print(iter)
-
     return out
     
 
     
 
 
-def prepare_dataframe(file_name):
+def prepare_dataframe(file_name,lemmatising=False):
     """
     Function that allows to prepare the two dataframe for models
     :return X_df: a dataframe with the preprocessed text tweet
@@ -68,7 +64,7 @@ def prepare_dataframe(file_name):
     # We drop the column Location
     data_df = data_df.drop(['Location'], axis=1)
     # We drop the missing values
-    data_df.dropna()
+    data_df.dropna(inplace=True)
     # We drop the duplicates
     data_df.drop_duplicates()
 
@@ -83,13 +79,11 @@ def prepare_dataframe(file_name):
 
     # Lemmatisation
 
-    nlp = spacy.load('en_core_web_sm')
+    if lemmatising:
+        nlp = spacy.load('en_core_web_sm')
 
-    X_df.apply(lemmatisation , args=(nlp,)) 
-
-    
-    print(X_df)
-
+        tqdm.pandas()
+        X_df = X_df.progress_apply(lemmatisation , args=(nlp,)) 
 
 
 
