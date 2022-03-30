@@ -81,6 +81,12 @@ Un modèle "à la main" avec des LSTM, GRU basé sur les meilleurs de kaggle
 k fold sur les données ??? -> très long de tout faire tourner k fois 
 
 
+On semble pouvoir préciser l'ensemble de validation lors du fit d'un modèle
+
+One hot encoding sur y ??
+
+
+SMOTE very good -> preciser dans le rapport que c'est des données synthétiques
 
 
 TODO : 

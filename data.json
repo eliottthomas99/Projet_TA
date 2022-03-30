@@ -1,7 +1,7 @@
 {
     "SGD": {
-        "clf__alpha": 1.5873684210526315e-05,
-        "clf__penalty": "l1"
+        "alpha": 5.357894736842105e-06,
+        "penalty": "l1"
     },
     "RF": {
         "rf_clf__criterion": "entropy",
