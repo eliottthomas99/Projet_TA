@@ -1,32 +1,32 @@
 {
     "SGD": {
-        "alpha": 5.357894736842105e-06,
+        "alpha": 1.0615789473684212e-05,
         "penalty": "l1"
     },
     "RF": {
-        "rf_clf__criterion": "entropy",
-        "rf_clf__max_depth": 300,
-        "rf_clf__max_features": "sqrt",
-        "rf_clf__min_samples_leaf": 2,
-        "rf_clf__min_samples_split": 32,
-        "rf_clf__n_estimators": 100,
-        "rf_clf__warm_start": true
+        "criterion": "entropy",
+        "max_depth": 600,
+        "max_features": "log2",
+        "min_samples_leaf": 1,
+        "min_samples_split": 32,
+        "n_estimators": 100,
+        "warm_start": false
     },
     "GB": {
-        "gb_clf__learning_rate": 0.2,
-        "gb_clf__n_estimators": 800
+        "learning_rate": 0.2,
+        "n_estimators": 800
     },
     "LR": {
-        "lr_clf__C": 10,
-        "lr_clf__tol": 1e-08
+        "C": 20,
+        "tol": 1e-08
     },
     "Perceptron": {
-        "per_clf__alpha": 5.272631578947369e-06,
-        "per_clf__penalty": "l1"
+        "alpha": 1e-08,
+        "penalty": "l2"
     },
     "SVC": {
-        "svc_clf__dual": false,
-        "svc_clf__loss": "squared_hinge",
-        "svc_clf__penalty": "l1"
+        "dual": false,
+        "loss": "squared_hinge",
+        "penalty": "l1"
     }
 }
