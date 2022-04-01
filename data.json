@@ -1,32 +1,32 @@
 {
     "SGD": {
-        "alpha": 1.0615789473684212e-05,
-        "penalty": "l1"
+        "clf__alpha": 1.0615789473684212e-05,
+        "clf__penalty": "l1"
     },
     "RF": {
-        "criterion": "entropy",
-        "max_depth": 600,
-        "max_features": "log2",
-        "min_samples_leaf": 1,
-        "min_samples_split": 32,
-        "n_estimators": 100,
-        "warm_start": false
+        "clf__criterion": "gini",
+        "clf__max_depth": 600,
+        "clf__max_features": "sqrt",
+        "clf__min_samples_leaf": 2,
+        "clf__min_samples_split": 32,
+        "clf__n_estimators": 100,
+        "clf__warm_start": false
     },
     "GB": {
-        "learning_rate": 0.2,
-        "n_estimators": 800
+        "clf__learning_rate": 0.2,
+        "clf__n_estimators": 800
     },
     "LR": {
-        "C": 20,
-        "tol": 1e-08
+        "clf__C": 10,
+        "clf__tol": 1e-08
     },
     "Perceptron": {
-        "alpha": 1e-08,
-        "penalty": "l2"
+        "clf__alpha": 5.272631578947369e-06,
+        "clf__penalty": "l1"
     },
     "SVC": {
-        "dual": false,
-        "loss": "squared_hinge",
-        "penalty": "l1"
+        "clf__dual": false,
+        "clf__loss": "squared_hinge",
+        "clf__penalty": "l1"
     }
 }

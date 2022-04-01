@@ -34,6 +34,13 @@ piste : tokeniser avec spacy
 trucs de luca
 
 
+Dire dans le rapport que : 
+- -> lutilisation de SMOTE n'est pas pertinante ici -> pas de gain en performances mais ajout significatif de temps de fit. (*1.3)
+- les pipelines sont toutes indiquées. En effet si on vectorise PUIS on applique le modele classique alors c'est environ 2 à 3 fois plus long.  
+
+
+tester aussi des hyperparametres de tfidfs ? 
+
 
 
 - **Change from 5 to 3 classes ? Or compare ?**  --> compare methods efficiency for each nuber of class
