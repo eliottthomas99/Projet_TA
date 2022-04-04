@@ -25,11 +25,11 @@ def give_number_to_class(row):
     """
     sent = row['Sentiment']
     if sent == 'Extremely Negative' or sent == 'Negative':
-        return -1
-    elif sent == 'Neutral':
         return 0
-    else:
+    elif sent == 'Neutral':
         return 1
+    else:
+        return 2
 
 
 

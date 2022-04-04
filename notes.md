@@ -28,7 +28,11 @@ piste : tokeniser avec spacy
 - Vérifier la cohérance des notes données par les noteurs
 
 
-- Lemmatisation ?
+- Lemmatisation ? -> Nope
+
+- smote sur le modele fancy ?
+
+https://www.kaggle.com/code/ludovicocuoghi/twitter-sentiment-analysis-with-bert-roberta -> plein de pistes !! 
 
 
 trucs de luca
