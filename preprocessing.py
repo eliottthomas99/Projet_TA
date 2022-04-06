@@ -75,7 +75,7 @@ def lemmatisation(text,nlp):
     
 
 
-def prepare_dataframe(file_name,lemmatising=False):
+def prepare_dataframe(file_name, original_class, lemmatising=False):
     """
     Function that allows to prepare the two dataframe for models
     :param file_name: a string containing the name of the file
