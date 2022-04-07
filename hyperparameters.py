@@ -2,7 +2,6 @@
 # THOMAS Eliott THOE2303
 
 
-import imp
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import SGDClassifier, LogisticRegression, Perceptron
