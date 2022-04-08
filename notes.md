@@ -78,6 +78,7 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 - les pipelines sont toutes indiquées. En effet si on vectorise PUIS on applique le modele classique alors c'est environ 2 à 3 fois plus long.  
 - Mettre des titres sur nos graphiques, ***vraiment*** !!!
 - k fold sur les données ??? -> très long de tout faire tourner k fois 
+- enlever les points du texte car ils sont innutiles mais fréquents. Cela va rendre les chiffres moins  lisible car multipliés par 100 mais c'est ok .
 
 
 
@@ -92,5 +93,5 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 - VotingClassifier ? -> pondéré ?  GOOD (take the best one)
 
 
-
+    
 
