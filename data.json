@@ -1,32 +1,56 @@
 {
     "SGD": {
-        "clf__alpha": 1.0615789473684212e-05,
-        "clf__penalty": "l1"
+        "params": {
+            "clf__alpha": 1.2000000000000002e-05,
+            "clf__penalty": "l1",
+            "tfidf__max_df": 0.75,
+            "tfidf__min_df": 1,
+            "tfidf__ngram_range": [
+                1,
+                1
+            ]
+        },
+        "best_score": 0.8769590395125022
     },
     "RF": {
-        "clf__criterion": "gini",
-        "clf__max_depth": 600,
-        "clf__max_features": "sqrt",
-        "clf__min_samples_leaf": 2,
-        "clf__min_samples_split": 32,
-        "clf__n_estimators": 100,
-        "clf__warm_start": false
+        "params": {
+            "clf__criterion": "gini",
+            "clf__max_depth": 600,
+            "clf__max_features": "sqrt",
+            "clf__min_samples_leaf": 2,
+            "clf__min_samples_split": 32,
+            "clf__n_estimators": 100,
+            "clf__warm_start": false
+        },
+        "best_score": 0.8391769441865644
     },
     "GB": {
-        "clf__learning_rate": 0.2,
-        "clf__n_estimators": 800
+        "params": {
+            "clf__learning_rate": 0.2,
+            "clf__n_estimators": 800
+        },
+        "best_score": 0.7047644196092446
     },
     "LR": {
-        "clf__C": 10,
-        "clf__tol": 1e-08
+        "params": {
+            "clf__C": 10,
+            "clf__tol": 1e-08
+        },
+        "best_score": 0.8230677619122002
     },
     "Perceptron": {
-        "clf__alpha": 5.272631578947369e-06,
-        "clf__penalty": "l1"
+        "params": {
+            "clf__alpha": 5.272631578947369e-06,
+            "clf__penalty": "l1"
+        },
+        "best_score": 0.818353925564533
     },
     "SVC": {
-        "clf__dual": false,
-        "clf__loss": "squared_hinge",
-        "clf__penalty": "l1"
+        "params": {
+            "clf__dual": false,
+            "clf__loss": "squared_hinge",
+            "clf__penalty": "l1"
+        },
+        "best_score": 0.868916566574562
     }
 }
