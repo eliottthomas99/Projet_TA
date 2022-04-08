@@ -4,6 +4,9 @@
 import pandas as pd
 import preprocessor as p
 import spacy
+import nltk
+from nltk.stem import WordNetLemmatizer
+
 from tqdm import tqdm
 
 
@@ -58,9 +61,9 @@ def give_number_to_class(row, original_class):
 
 
 
-def lemmatisation(text,nlp):
+def lemmatisation_spacy(text,nlp):
     """
-    lemmatising !!!
+    lemmatising with spacy
     """
     doc = nlp(text)
     out = "" 
@@ -70,12 +73,29 @@ def lemmatisation(text,nlp):
     out=out[:len(out)-1]
 
     return out
+
+
+def lemmatisation_nltk(text):
+    """
+    lemmatising with nltk
+    """
+
+    lemmatizer = WordNetLemmatizer()
+
+    out = "" 
+    text = text.split()
+    for word in text:
+        lemme =  lemmatizer.lemmatize(word)
+        out += lemme+" "
+    out=out[:len(out)-1]
+
+    return out
     
 
     
 
 
-def prepare_dataframe(file_name, original_class, lemmatising=False):
+def prepare_dataframe(file_name, original_class, lemmatising=None):
     """
     Function that allows to prepare the two dataframe for models
     :param file_name: a string containing the name of the file
@@ -106,11 +126,13 @@ def prepare_dataframe(file_name, original_class, lemmatising=False):
 
     # Lemmatisation
 
-    if lemmatising:
+    if lemmatising=='spacy':
         nlp = spacy.load('en_core_web_sm')
 
         tqdm.pandas()
-        X_df = X_df.progress_apply(lemmatisation , args=(nlp,)) 
-
+        X_df = X_df.progress_apply(lemmatisation_spacy , args=(nlp,)) 
+    elif lemmatising=='nltk':
+        tqdm.pandas()
+        X_df = X_df.progress_apply(lemmatisation_nltk)
 
     return X_df, y_df

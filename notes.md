@@ -20,9 +20,9 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 ### A FAIRE
 
 - **- Les Hashtags sont mals supprimés. ex : as #coronavirus-fearing shoppers ==> as fearing shoppers** HONORINE --> DONE
-- tester aussi des hyperparametres de tfidfs ?  -> min and max_df ? ELIOTT
+- tester aussi des hyperparametres de tfidfs ?  -> min and max_df ? ELIOTT --> DONE structure but need training/testing (meaning a LOT of time)
 - **Change from 5 to 3 classes ? Or compare ?**  --> comparaison classements en terme d'accuracy pour le train et pour le test HONORINE --> DONE
-- Faire un script pour les modèles ELIOTT
+- Faire un script pour les modèles ELIOTT --> DONE for RNN, no need for more for the others
 - requirement.txt pour les imports HONORINE --> DONE
 - One hot encoding sur y ?? ELIOTT --> DONE (pour le RNN ok, pour les autres modèles c'est pas possible en fait)
 
