@@ -13,6 +13,7 @@ https://www.kaggle.com/code/ludovicocuoghi/twitter-sentiment-analysis-with-bert-
 citer en sources : le mooc, le preprocessing de tweets sur kaggle
 
 - Version de scikit_learn >= 0.23.2
+- nltk --> import nltk / nltk.download('wordnet')
 
 
 

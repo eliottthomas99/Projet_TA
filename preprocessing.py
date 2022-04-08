@@ -21,12 +21,21 @@ def preprocess_tweet(row):
     
     # We delete the hyphen of each row
     for i in range(len(text)):
-        if text[i] != '-':
+        #if text[i] in []:
+            #print(text[i], "caract chelou")
+        if text[i] not in ['-', '.', 'Ã','±','ã','¼','â','»','«', '§']:
             listToStr += text[i]            
-    
+
     listToStr = p.clean(listToStr)
     
-    return listToStr
+    new_list = ''
+    for word in listToStr.split(' '):
+        if word not in ['and', 'are']:
+            new_list += word + ' '
+    new_list = new_list[:-1]
+    
+    
+    return new_list
 
 
 def give_number_to_class(row, original_class):
@@ -70,7 +79,7 @@ def lemmatisation_spacy(text,nlp):
     for token in doc:
         lemme =  token.lemma_
         out += lemme+" "
-    out=out[:len(out)-1]
+    out=out[:-1]
 
     return out
 
@@ -87,7 +96,7 @@ def lemmatisation_nltk(text):
     for word in text:
         lemme =  lemmatizer.lemmatize(word)
         out += lemme+" "
-    out=out[:len(out)-1]
+    out=out[:-1]
 
     return out
     
@@ -117,6 +126,8 @@ def prepare_dataframe(file_name, original_class, lemmatising=None):
 
     # We apply the preprocess_tweet function to the dataframe
     data_df['OriginalTweet'] = data_df.apply(preprocess_tweet, axis=1)
+    data_df = data_df.loc[data_df['OriginalTweet'] != ''].reset_index()
+    
     # We apply the give_number_to_class function to the dataframe
     data_df['Sentiment_Number'] = data_df.apply(lambda x: give_number_to_class(x, original_class), axis=1)
     
