@@ -64,12 +64,8 @@ MODELS_AND_PARAMS = {
                     'tfidf__max_df': (0.25, 0.5, 0.75, 1.0),
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
-                    'clf__n_estimators': [100, 200],   
-                    'clf__max_depth': [300,600,None],
                     'clf__min_samples_leaf': [1, 2, 3],   
-                    'clf__min_samples_split': [16, 32, 64],
-                    'clf__max_features': ['log2', 'sqrt'],
-                    'clf__criterion': ['gini', 'entropy']
+                    'clf__min_samples_split': [2, 16, 32]
                         }
             
     },
@@ -79,7 +75,7 @@ MODELS_AND_PARAMS = {
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
                     'clf__C': [20,10, 1],
-                    'clf__tol': np.linspace(1e-12,1e-6,20)
+                    'clf__tol': np.linspace(1e-10,1e-6,15)
                         }
             
     },

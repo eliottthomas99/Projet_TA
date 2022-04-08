@@ -34,8 +34,8 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 
 - piste : tokeniser avec spacy ou tensorflow (lemmatizing et fancy) ELIOTT
 - Prétraitement des données ---> voir au dessus HONORINE --> DONE
-- ensembling ? -> pk pas meilleur que tous les autres, en particulier SVC ? ELIOTT
-- Lemmatisation ? (Semble inaproprié mais peut être mieux avec un aute tokenizer ?) ELIOTT
+- ensembling ? -> pk pas meilleur que tous les autres, en particulier SVC ? ELIOTT  --> tester le rnn dedans ? 
+- Lemmatisation ? (Semble inaproprié mais peut être mieux avec un aute tokenizer ?) ELIOTT  --> DONE et pas mieux
 - Add some visualisation HONORINE --> DONE
 - Entrainer sur tout le train (si pas de grid search) ELIOTT
 - Un modèle "à la main" avec des LSTM, GRU basé sur les meilleurs de kaggle ,  GRU , LSTM ,  Word to vec ? ELIOTT
