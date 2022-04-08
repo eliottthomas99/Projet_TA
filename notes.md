@@ -24,7 +24,7 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 - **Change from 5 to 3 classes ? Or compare ?**  --> comparaison classements en terme d'accuracy pour le train et pour le test HONORINE --> DONE
 - Faire un script pour les modèles ELIOTT
 - requirement.txt pour les imports HONORINE --> DONE
-- One hot encoding sur y ?? ELIOTT
+- One hot encoding sur y ?? ELIOTT --> DONE (pour le RNN ok, pour les autres modèles c'est pas possible en fait)
 
 
 

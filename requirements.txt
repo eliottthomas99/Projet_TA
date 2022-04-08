@@ -4,3 +4,4 @@ scikit-learn
 pandas
 tweet-preprocessor
 imbalanced-learn
+plotly
