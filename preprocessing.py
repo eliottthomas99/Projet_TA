@@ -6,36 +6,34 @@ import preprocessor as p
 import spacy
 import nltk
 from nltk.stem import WordNetLemmatizer
-
 from tqdm import tqdm
-
 
 def preprocess_tweet(row):
     """
-    Function that allows to clean the tweet, delete : URLs, Hashtags, Mentions, Reserved words (RT, FAV), Emojis and Smileys
+    Function that allows to preprocess tweet
     :param row: a string containing the orignal tweet
-    :return text: the tweet cleaned
+    :return text: the tweet preprocessed
      """
     text = row['OriginalTweet']
-    listToStr = ' '
+    new_text = ' '
+    final_text = ''
     
-    # We delete the hyphen of each row
+    # We delete some punctuation for each row
     for i in range(len(text)):
-        #if text[i] in []:
-            #print(text[i], "caract chelou")
-        if text[i] not in ['-', '.', 'Ã','±','ã','¼','â','»','«', '§']:
-            listToStr += text[i]            
-
-    listToStr = p.clean(listToStr)
+        if text[i] not in ['-', '.', 'Ã','±','ã','¼','â','»','«', '§', '$', "'", '(', ')','+', ',', '=', '^', '`', '|', '~']:
+            new_text += text[i]            
     
-    new_list = ''
-    for word in listToStr.split(' '):
+    # We clean the tweet, delete : URLs, Hashtags, Mentions, Reserved words (RT, FAV), Emojis and Smileys
+    new_text = p.clean(new_text)
+    
+    
+    # We delete some common words for each row
+    for word in new_text.split(' '):
         if word not in ['and', 'are']:
-            new_list += word + ' '
-    new_list = new_list[:-1]
+            final_text += word + ' '
+    final_text = final_text[:-1]
     
-    
-    return new_list
+    return final_text
 
 
 def give_number_to_class(row, original_class):
@@ -116,7 +114,8 @@ def prepare_dataframe(file_name, original_class, lemmatising=None):
 
     # We save data of the csv file in a dataframe
     data_df = pd.read_csv(file_name, sep=',', encoding='latin')
-
+    
+    
     # We drop the column Location
     data_df = data_df.drop(['Location'], axis=1)
     # We drop the missing values
@@ -126,17 +125,23 @@ def prepare_dataframe(file_name, original_class, lemmatising=None):
 
     # We apply the preprocess_tweet function to the dataframe
     data_df['OriginalTweet'] = data_df.apply(preprocess_tweet, axis=1)
-    data_df = data_df.loc[data_df['OriginalTweet'] != ''].reset_index()
     
+    # We compute the text len for each tweet
+    text_len = []
+    for text in data_df['OriginalTweet']:
+        tweet_len = len(text.split())
+        text_len.append(tweet_len)
+    data_df['text_len'] = text_len
+
     # We apply the give_number_to_class function to the dataframe
     data_df['Sentiment_Number'] = data_df.apply(lambda x: give_number_to_class(x, original_class), axis=1)
+    # We only keep the tweet with lenght > 4 characters
+    data_df = data_df[data_df['text_len'] > 4].reset_index()
     
     X_df = data_df['OriginalTweet']
     y_df = data_df['Sentiment_Number']
-
-
+    
     # Lemmatisation
-
     if lemmatising=='spacy':
         nlp = spacy.load('en_core_web_sm')
 
