@@ -15,7 +15,7 @@ import plotly.express as px
 
 # hyper parameters
 
-EPOCHS = 5
+EPOCHS = 2
 BATCH_SIZE =  32 
 embedding_dim =  16
 units = 256

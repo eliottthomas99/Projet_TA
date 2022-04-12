@@ -27,7 +27,7 @@
     "GB": {
         "params": {
             "clf__learning_rate": 0.2,
-            "clf__n_estimators": 800
+            "clf__n_estimators": 200
         },
         "best_score": 0.7047644196092446
     },
