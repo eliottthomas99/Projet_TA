@@ -66,8 +66,6 @@ def give_number_to_class(row, original_class):
             return 2
 
 
-
-
 def lemmatisation_spacy(text,nlp):
     """
     lemmatising with spacy
@@ -97,9 +95,6 @@ def lemmatisation_nltk(text):
     out=out[:-1]
 
     return out
-    
-
-    
 
 
 def prepare_dataframe(file_name, original_class, lemmatising=None):
