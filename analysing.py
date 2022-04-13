@@ -9,6 +9,7 @@ from wordcloud import WordCloud
 from collections import defaultdict
 import string
 
+
 def compute_null_values(dataframe, name_dataframe):
     """
     Function that allow to compute null values and display the result
@@ -24,8 +25,8 @@ def compute_null_values(dataframe, name_dataframe):
 
     missing_data.reset_index(inplace=True)
     missing_data = missing_data.rename(columns={ "index": " column name"})
- 
-    print (f"Null Values in each column {name_dataframe} data :\n", missing_data)
+
+    print(f"Null Values in each column {name_dataframe} data :\n", missing_data)
 
 
 def tranforme_number_of_class(x):
@@ -34,13 +35,13 @@ def tranforme_number_of_class(x):
     :param x: the sentiment
     :return "positive", "negative", "neutral": the name of the new class
      """
-    if x ==  "Extremely Positive" or x == "Positive" or x ==  1:
+    if x == "Extremely Positive" or x == "Positive" or x == 1:
         return "positive"
-    elif x == "Extremely Negative" or x == "Negative" or x ==  -1:
+    elif x == "Extremely Negative" or x == "Negative" or x == -1:
         return "negative"
     else:
         return "neutral"
-    
+
 
 def display_length_tweet(dataframe, name_dataframe):
     """
@@ -50,18 +51,18 @@ def display_length_tweet(dataframe, name_dataframe):
     :display: a histogram of the length of each tweet for each sentiment
      """
     fig = make_subplots(1, 3)
-    fig,(ax1,ax2,ax3) = plt.subplots(1, 3, figsize=(15,5))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15, 5))
 
-    tweet_len = dataframe[dataframe['sentiment']=="positive"]['text'].str.len()
+    tweet_len = dataframe[dataframe['sentiment'] == "positive"]['text'].str.len()
     ax1.hist(tweet_len, color='#17C37B')
     ax1.set_title('Positive Sentiments')
 
-    tweet_len = dataframe[dataframe['sentiment']=="negative"]['text'].str.len()
+    tweet_len = dataframe[dataframe['sentiment'] == "negative"]['text'].str.len()
     ax2.hist(tweet_len, color='#F92969')
     ax2.set_title('Negative Sentiments')
 
-    tweet_len = dataframe[dataframe['sentiment']=="neutral"]['text'].str.len()
-    ax3.hist(tweet_len,color = '#FACA0C')
+    tweet_len = dataframe[dataframe['sentiment'] == "neutral"]['text'].str.len()
+    ax3.hist(tweet_len, color='#FACA0C')
     ax3.set_title('Neutral Sentiments')
 
     fig.suptitle(f'Characters in tweets for each sentiment in the {name_dataframe} data')
@@ -76,18 +77,17 @@ def display_numbers_words_for_each_tweet(dataframe, name_dataframe):
     :param name_dataframe: a string with the name of the dataframe
     :display: a histogram of the number of words in a tweet for each sentiment
      """
-    fig,(ax1,ax2,ax3) = plt.subplots(1, 3, figsize=(15,5))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15, 5))
 
-    tweet_len = dataframe[dataframe['sentiment']=="positive"]['text'].str.split().map(lambda x: len(x))
+    tweet_len = dataframe[dataframe['sentiment'] == "positive"]['text'].str.split().map(lambda x: len(x))
     ax1.hist(tweet_len, color='#17C37B')
     ax1.set_title('Positive Sentiments')
 
-
-    tweet_len = dataframe[dataframe['sentiment']=="negative"]['text'].str.split().map(lambda x: len(x))
+    tweet_len = dataframe[dataframe['sentiment'] == "negative"]['text'].str.split().map(lambda x: len(x))
     ax2.hist(tweet_len, color='#F92969')
     ax2.set_title('Negative Sentiments')
 
-    tweet_len = dataframe[dataframe['sentiment']=="neutral"]['text'].str.split().map(lambda x: len(x))
+    tweet_len = dataframe[dataframe['sentiment'] == "neutral"]['text'].str.split().map(lambda x: len(x))
     ax3.hist(tweet_len, color='#FACA0C')
     ax3.set_title('Neutral Sentiments')
 
@@ -103,24 +103,23 @@ def display_mean_length_words(dataframe, name_dataframe):
     :param name_dataframe: a string with the name of the dataframe
     :display: a histogram of the mean length of words in a tweet for each sentiment
      """
-    fig,(ax1,ax2, ax3) = plt.subplots(1,3,figsize=(15,5))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15, 5))
 
-    word = dataframe[dataframe['sentiment']=="positive"]['text'].str.split().apply(lambda x : [len(i) for i in x])
+    word = dataframe[dataframe['sentiment'] == "positive"]['text'].str.split().apply(lambda x: [len(i) for i in x])
     ax1.hist(word.map(lambda x: np.mean(x)), color='#17C37B')
     ax1.set_title('Positive')
 
-
-    word = dataframe[dataframe['sentiment']=="negative"]['text'].str.split().apply(lambda x : [len(i) for i in x])
+    word = dataframe[dataframe['sentiment'] == "negative"]['text'].str.split().apply(lambda x: [len(i) for i in x])
     ax2.hist(word.map(lambda x: np.mean(x)), color='#F92969')
     ax2.set_title('Negative')
 
-    word = dataframe[dataframe['sentiment']=="neutral"]['text'].str.split().apply(lambda x : [len(i) for i in x])
+    word = dataframe[dataframe['sentiment'] == "neutral"]['text'].str.split().apply(lambda x: [len(i) for i in x])
     ax3.hist(word.map(lambda x: np.mean(x)), color='#FACA0C')
     ax3.set_title('Neutral')
 
     fig.suptitle(f'Mean word length in each tweet for each class in the {name_dataframe} data')
     fig.savefig(f'out/mean_word_length_in_each_tweet_for_each_class_{name_dataframe}_data.png')
- 
+
 
 def create_corpus(target, dataframe):
     """
@@ -130,7 +129,7 @@ def create_corpus(target, dataframe):
     :return corpus: a list with the corpus
      """
     corpus = []
-    for x in dataframe[dataframe['sentiment']==target]['text'].str.split():
+    for x in dataframe[dataframe['sentiment'] == target]['text'].str.split():
         for i in x:
             corpus.append(i)
     return corpus
@@ -143,7 +142,7 @@ def display_the_use_punctuation_for_each_class(dataframe, sentiment, name_datafr
     :param name_dataframe: a string with the name of the dataframe
     :display: a histogram of the use punctuation for each sentiment
      """
-    plt.figure(figsize=(10,5))
+    plt.figure(figsize=(10, 5))
     corpus = create_corpus(sentiment, dataframe)
     dic = defaultdict(int)
 
@@ -151,8 +150,8 @@ def display_the_use_punctuation_for_each_class(dataframe, sentiment, name_datafr
     for i in (corpus):
         if i in special:
             dic[i] += 1
-    x,y = zip(*dic.items())
-    
+    x, y = zip(*dic.items())
+
     if sentiment == "positive" or sentiment == 1:
         plt.title(f"Total number of uses of punctuation for all tweets for positive sentiment in the {name_dataframe} data")
         plt.bar(x, y, color='#17C37B')
@@ -166,7 +165,8 @@ def display_the_use_punctuation_for_each_class(dataframe, sentiment, name_datafr
         plt.bar(x, y, color='#FACA0C')
         plt.savefig(f"out/number_punctuation_neutral_{name_dataframe}_data.png")
     plt.show()
-    
+
+
 def get_frequencies(words):
     """
     Function that allows to get the frequencie of a list of words for each word
@@ -179,7 +179,8 @@ def get_frequencies(words):
             frequencies[word] += 1
         else:
             frequencies[word] = 1
-    return {key: value for key, value in sorted(frequencies.items(),key=lambda item: item[1],reverse=True)}
+    return {key: value for key, value in sorted(frequencies.items(), key=lambda item: item[1], reverse=True)}
+
 
 def word_cloud(frequencies, title):
     """

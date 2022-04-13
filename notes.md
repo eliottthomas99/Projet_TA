@@ -94,5 +94,74 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 - VotingClassifier ? -> pondéré ?  GOOD (take the best one)
 
 
+
+### TODO
+
+- re run everything
+- rajouter le modèle RNN au Voting classifier ?
+- Optuna --> Faire cross validation en faisant la moyenne sur k fit (5 par default)
+- Flak8
+- rapport 
+
+# PLAN 
+
+## Intro    HONORINE
+
+    - Contexte
+    - Sujet + problématique
+    - annonce du plan
+
+## Part 0 : Visualisation : partie indépendante ou l'intégrer au fur et à mesure ? HONORINE
+
+## Part 1 : Preprocessing   
+
+    - Ce qui a été fait et a fonctionné :
+        - bla bla    HONORINE
+        - bla bli    HONORINE
+    - Ce qui a été fait mais n'a pas donné de bons résultats:
+        - Lemmatisation (SpaCy and NLTK)      ELIOTT
+        - Équilibrage de données avec SMOTE   ELIOTT
+
+
+## Part 2 : Modélisation
+
+    1) Choix des modèles :
+        Présentatin ou Rappel du fonctionnement de chaque modèle + éventuellement résultats attendus
+        a) Les modèles sklearn 
+            i) Présenter rapidement TFIDF     ELIOTT
+            ii) Présenter les Pipelines (vérifier le fait qu'elles sont bcp plus rapide)    ELIOTT
+        b) Le/les "Voting Classifier" (à décaler en "c" si on inclu le RNN dans le "Voting Classifier")    ELIOTT
+        c) Le RNN    ELIOTT
+    
+    2) Recherche d'hyperparamètres : 
+        a) GridSearchCV pour les modèles sklearn    ELIOTT
+        b) Optuna pour le RNN    ELIOTT
+
+
+## Part 3 : Analyse des résultats 
+
+    1) Comparer l'efficacité des différents modèles (accuracy et/ou f1-score):
+        a) 3 classes VS 5 classes    HONORINE
+        b) ...    HONORINE
+    2) 5 modèles retenus et pourquoi ?    HONORINE 
+        a) Se baser sur les performances (accuracy et/ou f1-score et/ou autre)
+        b) Se baser sur le temps d'entrainement --> on exclu probablement Gradient Boosting
+        c) Se baser sur la similarité entre modèles : 
+            Ne garder que LR ou PER --> comparer les perfs teporelles et pratique et prendre le compromis qui nous semble le meilleur
+
+## Conclusion 
+
+    - Bilan (ce qu'on a appris, ce qu'il faut retenir ...)    HONORINE
+    - Limites (qualité du dataset, limite de nos machines pour les perfs ....)    HONORINE
+    - Ouverture (Utilisation de Transformers ? Vader ? Word2Vec/Glove ? )    ELIOTT
+
+## Bibliographie
+
+- Les codes kaggle et autres dont on s'est inspiré
+- Les articles qu'on a lu pour se documenter, notament pour l'ouverture
+- La documentation de certaines library si elles sont "originales" (Optuna, sklearn.Pipeline, tweet-preprocessing, ...)
+
+
+
     
 

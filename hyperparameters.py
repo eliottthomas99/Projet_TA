@@ -15,8 +15,8 @@ import json
 
 
 pipeline_sgd = Pipeline([('tfidf', TfidfVectorizer()),
-                     ('clf', SGDClassifier()),
-])
+                         ('clf', SGDClassifier()),
+                         ])
 
 pipeline_gb = Pipeline([('tfidf', TfidfVectorizer()),
                      ('clf', GradientBoostingClassifier()),
@@ -39,15 +39,14 @@ pipeline_svc = Pipeline([('tfidf', TfidfVectorizer()),
 ])
 
 
-
 MODELS_AND_PARAMS = {
-    "SGD" : { "model" : pipeline_sgd,
-              "params" : {
+    "SGD":{ "model": pipeline_sgd,
+              "params": {
                     'tfidf__max_df': (0.25, 0.5, 0.75, 1.0),
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
                     'clf__penalty': ['l2', 'l1', 'elasticnet'],
-                    'clf__alpha': np.linspace(1e-6, 1e-4, 10),  
+                    'clf__alpha': np.linspace(1e-6, 1e-4, 10), 
                         }
     },
     "GB" : { "model" : pipeline_gb,
@@ -104,6 +103,7 @@ MODELS_AND_PARAMS = {
 
 }
 
+
 def grid_search(model_name, X_train, y_train, subset=-1):
     """
     Performs a grid search on the given model with the given parameters.
@@ -129,6 +129,7 @@ def grid_search(model_name, X_train, y_train, subset=-1):
     print("Best Params: ", grid_clf.best_params_)
 
     return grid_clf
+
 
 def if_save(model_name, dico, grid) : 
     """
