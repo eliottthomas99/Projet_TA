@@ -69,6 +69,9 @@ def give_number_to_class(row, original_class):
 def lemmatisation_spacy(text,nlp):
     """
     lemmatising with spacy
+    :param text: a string containing the orignal tweet
+    :param nlp: a spacy object
+    :return out: the tweet lemmatised
     """
     doc = nlp(text)
     out = "" 
@@ -83,6 +86,8 @@ def lemmatisation_spacy(text,nlp):
 def lemmatisation_nltk(text):
     """
     lemmatising with nltk
+    :param text: a string containing the orignal tweet
+    :return out: the tweet lemmatised
     """
 
     lemmatizer = WordNetLemmatizer()

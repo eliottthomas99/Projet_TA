@@ -6,7 +6,11 @@ import RNN as rnn
 def objective(trial, X_train, y_train, y_test):
     """
     Objective function to be minimized.
-
+    :param trial: A Trial object to optimize.
+    :param X_train: The training data.
+    :param y_train: The training labels.
+    :param y_test: The test labels.
+    :return: The value of the objective function.
     """
     # Generate the hyperparameters
 
@@ -19,6 +23,7 @@ def objective(trial, X_train, y_train, y_test):
 
     print(trial.params)  # print parameters to be tested for this trial
 
+    # Create the model
     rnn_model = rnn.RNN(X_train=X_train, y_train=y_train, y_test=y_test, embedding_dim=embedding_dim, units=units, dropout=dropout, n_neurons=n_neurons, optimize=True)
 
     # model training and evaluation
@@ -30,6 +35,11 @@ def objective(trial, X_train, y_train, y_test):
 def optisearch(X_train, y_train, y_test, n_trials=100):
     """
     Create a study object and run the Objective function.
+    :param X_train: The training data.
+    :param y_train: The training labels.
+    :param y_test: The test labels.
+    :param n_trials: The number of trials to run.
+    :display: The results of the optimization.
     """
     objective_callback = lambda trial: objective(
         trial,

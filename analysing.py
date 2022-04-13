@@ -16,8 +16,8 @@ def compute_null_values(dataframe, name_dataframe):
     :param name_dataframe: a string with the name of the dataframe
     :display: the result of missing data
      """
-    null = dataframe.isnull().sum().sort_values(ascending=False)
-    total = dataframe.shape[0]
+    null = dataframe.isnull().sum().sort_values(ascending=False)  # missing values
+    total = dataframe.shape[0]  # total number of rows in the full dataset
     percent_missing = (dataframe.isnull().sum()/total).sort_values(ascending=False)
 
     missing_data = pd.concat([null, percent_missing], axis=1, keys=['Total missing', 'Percent missing'])

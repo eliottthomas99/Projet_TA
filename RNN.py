@@ -3,7 +3,6 @@
 
 
 #  tensorflow
-from torch import dropout
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -26,6 +25,19 @@ n_neurons = 64
 class RNN():
 
     def __init__(self, X_train, y_train, y_test, embedding_dim=embedding_dim, units=units, dropout=dp, n_neurons=n_neurons, optimize=False):
+        """
+        RNN class constructor.
+        :param X_train: The training data.
+        :param y_train: The training labels.
+        :param y_test: The test labels.
+        :param embedding_dim: The embedding dimension.
+        :param units: The number of units.
+        :param dropout: The dropout rate.
+        :param n_neurons: The number of neurons.
+        :param optimize: If True, the hyperparameters will be optimized.        
+        """
+        
+        
         if not optimize:
             print("##### CREATING RNN #####")
 
@@ -81,6 +93,13 @@ class RNN():
 
 
     def train(self, epochs=EPOCHS, batch_size=BATCH_SIZE, optimize=False): 
+        """
+        Train the model.
+        :param epochs: The number of epochs.
+        :param batch_size: The batch size.
+        :param optimize: If True, the hyperparameters will be optimized.
+        :return: The history of the training.
+        """
         if not optimize:
             print("##### TRAINING #####")
         self.history = self.model.fit(self.X, self.y_train, batch_size=batch_size, epochs=epochs, validation_split=0.1) # validation_split = 0.1 means that 10% of the data will be used for validation
@@ -89,6 +108,10 @@ class RNN():
         return self.history.history['val_accuracy'][-1] # return the accuracy of the model on the validation set at the end of the training
 
     def print_history(self):
+        """
+        Plot the history of the training.
+        :display: The history of the training.
+        """
         print("##### PRINTING HISTORY #####")
         fig = px.line( # plot the accuracy
             self.history.history, y=['accuracy', 'val_accuracy'],
@@ -107,6 +130,11 @@ class RNN():
         print("##### PRINTING HISTORY COMPLETED #####")
 
     def test(self, X_test):
+        """
+        Test the model.
+        :param X_test: The test data.
+        :return: The loss and accuracy of the model on the test data.
+        """
         print("##### TESTING #####")
         X_test = self.tokenizer.texts_to_sequences(X_test) # tokenize the test data
         X_test = pad_sequences(X_test, padding='post',maxlen=self.pad_len) # we have to precise the maxlen because the test max size is not the same length as the training max size

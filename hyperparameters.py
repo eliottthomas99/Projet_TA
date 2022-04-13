@@ -104,16 +104,24 @@ MODELS_AND_PARAMS = {
 
 }
 
-def grid_Search(model_name, X_train, y_train, subset=-1):
+def grid_search(model_name, X_train, y_train, subset=-1):
+    """
+    Performs a grid search on the given model with the given parameters.
+    :param model_name: The name of the model to use.
+    :param X_train: The training data.
+    :param y_train: The training labels.
+    :param subset: The number of samples to use for the grid search.
+    :return: The best model.
+    """
 
-    model = MODELS_AND_PARAMS[model_name]["model"]
-    parameters = MODELS_AND_PARAMS[model_name]["params"]
+    model = MODELS_AND_PARAMS[model_name]["model"]  # get the model
+    parameters = MODELS_AND_PARAMS[model_name]["params"]  # get the parameters
 
-    grid_clf = GridSearchCV(model, parameters,  scoring='accuracy', verbose=1 ,n_jobs=-1)
+    grid_clf = GridSearchCV(model, parameters,  scoring='accuracy', verbose=1 ,n_jobs=-1)  # create the grid search
     
-    if subset==-1:
-        grid_clf.fit(X_train, y_train)
-    else:
+    if subset==-1:  # if no subset is given, use all the data
+        grid_clf.fit(X_train, y_train)  
+    else:  # if a subset is given, use only that subset
         grid_clf.fit(X_train[:subset], y_train[:subset])
 
 
@@ -122,9 +130,16 @@ def grid_Search(model_name, X_train, y_train, subset=-1):
 
     return grid_clf
 
-def if_Save(model_name, dico, grid) : 
+def if_save(model_name, dico, grid) : 
+    """
+    Saves the best model and the parameters in a json file.
+    :param model_name: The name of the model to use.
+    :param dico: The dictionary to save the model in.
+    :param grid: The grid search object.
+    :display: The best model and the parameters.
+    """
 
-    if grid.best_score_ > dico[model_name]["best_score"]:
+    if grid.best_score_ > dico[model_name]["best_score"]:  # if the best score is better than the one in the dictionary
         dico[model_name]["best_score"] = grid.best_score_
         dico[model_name]["params"] = grid.best_params_
         with open('data.json', 'w') as outfile:
