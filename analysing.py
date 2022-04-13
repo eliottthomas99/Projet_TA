@@ -1,13 +1,14 @@
 # CHANTRE Honorine  CHAH2807
 # THOMAS Eliott THOE2303
 
-import pandas as pd
-import numpy as np
-from plotly.subplots import make_subplots
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
-from collections import defaultdict
 import string
+from collections import defaultdict
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from plotly.subplots import make_subplots
+from wordcloud import WordCloud
 
 
 def compute_null_values(dataframe, name_dataframe):

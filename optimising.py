@@ -18,13 +18,22 @@ def objective(trial, X_train, y_train, y_test):
     batch_size = trial.suggest_int("batch_size", 16, 64)
     embedding_dim = trial.suggest_int("embedding_dim", 8, 64)
     units = trial.suggest_int("units", 128, 512)
-    dropout = trial.suggest_float("dropout", 0.1, 0.5, step = 0.1)
+    dropout = trial.suggest_float("dropout", 0.1, 0.5, step=0.1)
     n_neurons = trial.suggest_int("n_neurons", 32, 128)
 
     print(trial.params)  # print parameters to be tested for this trial
 
     # Create the model
-    rnn_model = rnn.RNN(X_train=X_train, y_train=y_train, y_test=y_test, embedding_dim=embedding_dim, units=units, dropout=dropout, n_neurons=n_neurons, optimize=True)
+    rnn_model = rnn.RNN(
+                        X_train=X_train,
+                        y_train=y_train,
+                        y_test=y_test,
+                        embedding_dim=embedding_dim,
+                        units=units,
+                        dropout=dropout,
+                        n_neurons=n_neurons,
+                        optimize=True
+                        )
 
     # model training and evaluation
     opti_accuracy = rnn_model.train(epochs=epochs, batch_size=batch_size, optimize=True)
