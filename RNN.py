@@ -3,6 +3,7 @@
 
 
 #  tensorflow
+from torch import dropout
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -19,11 +20,14 @@ EPOCHS = 2
 BATCH_SIZE =  32 
 embedding_dim =  16
 units = 256
+dp = 0.4
+n_neurons = 64
 
 class RNN():
 
-    def __init__(self, X_train, y_train, y_test):
-        print("##### CREATING RNN #####")
+    def __init__(self, X_train, y_train, y_test, embedding_dim=embedding_dim, units=units, dropout=dp, n_neurons=n_neurons, optimize=False):
+        if not optimize:
+            print("##### CREATING RNN #####")
 
         self.X_train = X_train # X_train is a list of strings
         self.y_train = y_train 
@@ -36,15 +40,16 @@ class RNN():
         self.X = self.tokenizer.texts_to_sequences(X_train) 
         self.vocab_size = len(self.tokenizer.word_index)+1 
 
-
-        print("Vocabulary size: {}".format(self.vocab_size)) 
-        print("\nExample:\n") 
-        print("Sentence:\n{}".format(self.X_train[6]))
-        print("\nAfter tokenizing :\n{}".format(self.X[6])) 
+        if not optimize:
+            print("Vocabulary size: {}".format(self.vocab_size)) 
+            print("\nExample:\n") 
+            print("Sentence:\n{}".format(self.X_train[6]))
+            print("\nAfter tokenizing :\n{}".format(self.X[6])) 
 
 
         self.X = pad_sequences(self.X, padding='post') # padding = 'post' means that the sentence will be padded at the end of the sequence
-        print("\nAfter padding :\n{}".format(self.X[6])) # the sequence will be padded with 0 at the end
+        if not optimize:
+            print("\nAfter padding :\n{}".format(self.X[6])) # the sequence will be padded with 0 at the end
         self.pad_len = self.X[0].shape[0] # the length of the longest tweet
 
         tf.keras.backend.clear_session() # clear the session
@@ -53,32 +58,35 @@ class RNN():
             L.Embedding(self.vocab_size, embedding_dim, input_length=self.X.shape[1]), # input_length = self.X.shape[1] means that the input will be of shape (batch_size, input_length)
             L.Bidirectional(L.LSTM(units,return_sequences=True)), # return_sequences = True means that the output will be a sequence of vectors
             L.GlobalMaxPool1D(), # GlobalMaxPool1D() is a layer that takes the maximum value of the output of the previous layer across the sequence dimension.
-            L.Dropout(0.4), # dropout to avoid overfitting
-            L.Dense(64, activation="relu"), # 64 neurons in the hidden layer
-            L.Dropout(0.4), # Dropout is a way to prevent overfitting
+            L.Dropout(dropout), # dropout to avoid overfitting
+            L.Dense(n_neurons, activation="relu"), # 64 neurons in the hidden layer
+            L.Dropout(dropout), # Dropout is a way to prevent overfitting
             L.Dense(3) # 3 classes
         ])
 
         self.model.compile(loss="mean_squared_error", 
               optimizer='adam',metrics=['accuracy'] 
              ) 
+        if not optimize:
+            self.model.summary() 
+            print("##### RNN CREATED #####") 
+            print("##### Preparing the training data #####")
 
-        self.model.summary() 
-
-        print("##### RNN CREATED #####") 
-
-        print("##### Preparing the training data #####")
         ohe = preprocessing.OneHotEncoder() # one hot encoder to transform the labels into vectors
 
         self.y_train = ohe.fit_transform(np.array(self.y_train).reshape(-1, 1)).toarray() # fit the encoder on the training data and transform the labels into vectors
         self.y_test = ohe.fit_transform(np.array(self.y_test).reshape(-1, 1)).toarray() # fit the encoder on the test data and transform the labels into vectors
-        print("##### training data prepared #####")
+        if not optimize:
+            print("##### training data prepared #####")
 
 
-    def train(self): 
-        print("##### TRAINING #####")
-        self.history = self.model.fit(self.X, self.y_train, batch_size=BATCH_SIZE, epochs=EPOCHS, validation_split=0.1) # validation_split = 0.1 means that 10% of the data will be used for validation
-        print("##### TRAINING COMPLETED #####")
+    def train(self, epochs=EPOCHS, batch_size=BATCH_SIZE, optimize=False): 
+        if not optimize:
+            print("##### TRAINING #####")
+        self.history = self.model.fit(self.X, self.y_train, batch_size=batch_size, epochs=epochs, validation_split=0.1) # validation_split = 0.1 means that 10% of the data will be used for validation
+        if not optimize:
+            print("##### TRAINING COMPLETED #####")
+        return self.history.history['val_accuracy'][-1] # return the accuracy of the model on the validation set at the end of the training
 
     def print_history(self):
         print("##### PRINTING HISTORY #####")

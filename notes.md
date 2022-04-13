@@ -40,7 +40,8 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 - Add some visualisation HONORINE --> DONE
 - Entrainer sur tout le train (si pas de grid search) ELIOTT
 - Un modèle "à la main" avec des LSTM, GRU basé sur les meilleurs de kaggle ,  GRU , LSTM ,  Word to vec ? ELIOTT
-- meilleure mesure de performance que accuracy --> classification report ?
+- meilleure mesure de performance que accuracy --> classification report ? --> DONE
+- Ameliorer le requirement.txt
 
 
 
