@@ -97,11 +97,12 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 
 ### TODO
 
-- re run everything
 - rajouter le modèle RNN au Voting classifier ?
 - Optuna --> Faire cross validation en faisant la moyenne sur k fit (5 par default)
-- Flak8
 - rapport 
+
+- re run everything IN THE END OBVIOUSLY
+
 
 # PLAN 
 
