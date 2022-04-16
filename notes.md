@@ -130,7 +130,7 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
         Présentatin ou Rappel du fonctionnement de chaque modèle + éventuellement résultats attendus
         a) Les modèles sklearn 
             i) Présenter rapidement TFIDF     ELIOTT
-            ii) Présenter les Pipelines (vérifier le fait qu'elles sont bcp plus rapide)    ELIOTT
+            ii) Présenter les Pipelines (vérifier le fait qu'elles sont bcp plus rapide --> NON)    ELIOTT
         b) Le/les "Voting Classifier" (à décaler en "c" si on inclu le RNN dans le "Voting Classifier")    ELIOTT
         c) Le RNN    ELIOTT
     
