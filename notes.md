@@ -69,6 +69,8 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 - preprocessing 
 - Sauvergarder les poids dans un fichier json et pas devoir tout refaire à chaque fois
 - Faire 5 ou 6 modèles "naifs" basés sur le cours 
+- Optuna --> Faire cross validation en faisant la moyenne sur k fit (5 par default)
+
 
 
 
@@ -97,9 +99,7 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 
 ### TODO
 
-- rajouter le modèle RNN au Voting classifier ?
-- Optuna --> Faire cross validation en faisant la moyenne sur k fit (5 par default)
-- rapport 
+    - rapport 
 
 - re run everything IN THE END OBVIOUSLY
 

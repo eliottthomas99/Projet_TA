@@ -68,3 +68,4 @@ def optisearch(X_train, y_train, y_test, n_trials=100, CV=5):
 
     print("Best value:", study.best_value)
     print("Best params:", study.best_params)
+    return study.best_params

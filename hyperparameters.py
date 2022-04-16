@@ -40,25 +40,25 @@ pipeline_svc = Pipeline([('tfidf', TfidfVectorizer()),
 MODELS_AND_PARAMS = {
     "SGD": {"model": pipeline_sgd,
             "params": {
-                    'tfidf__max_df': (0.25, 0.5, 0.75, 1.0),
+                    'tfidf__max_df': (0.3, 0.6, 1.0),
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
                     'clf__penalty': ['l2', 'l1', 'elasticnet'],
-                    'clf__alpha': np.linspace(1e-6, 1e-4, 10),
+                    'clf__alpha': [1e-05],
                         }
             },
     "GB": {"model": pipeline_gb,
            "params": {
-                    'tfidf__max_df': (0.25, 0.5, 0.75, 1.0),
+                    'tfidf__max_df': (0.3, 0.6, 1.0),
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
-                    "clf__learning_rate": [0.1, 0.2, 0.4, 0.8],
+                    "clf__learning_rate": [0.2, 0.4],
                     "clf__n_estimators": [200]  # 1600 highest and best tested but to time consuming
                         }
             },
     "RF": {"model": pipeline_rf,
            "params": {
-                    'tfidf__max_df': (0.25, 0.5, 0.75, 1.0),
+                    'tfidf__max_df': (0.3, 0.6, 1.0),
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
                     'clf__min_samples_leaf': [1, 2, 3],
@@ -67,7 +67,7 @@ MODELS_AND_PARAMS = {
             },
     "LR": {"model": pipeline_lr,
            "params": {
-                    'tfidf__max_df': (0.25, 0.5, 0.75, 1.0),
+                    'tfidf__max_df': (0.3, 0.6, 1.0),
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
                     'clf__C': [20, 10, 1],
@@ -76,16 +76,16 @@ MODELS_AND_PARAMS = {
             },
     "PER": {"model": pipeline_per,
             "params": {
-                    'tfidf__max_df': (0.25, 0.5, 0.75, 1.0),
+                    'tfidf__max_df': (0.3, 0.6, 1.0),
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
                     'clf__penalty': ['l2', 'l1', 'elasticnet'],
-                    'clf__alpha': np.linspace(1e-8, 1e-4, 100),
+                    'clf__alpha': np.linspace(1e-7, 1e-4, 30),
                         }
             },
     "SVC": {"model": pipeline_svc,
             "params": {
-                    'tfidf__max_df': (0.25, 0.5, 0.75, 1.0),
+                    'tfidf__max_df': (0.3, 0.6, 1.0),
                     'tfidf__min_df': (1, 2),
                     'tfidf__ngram_range': [(1, 1), (1, 2), (1, 3)],
                     'clf__penalty': ['l2', 'l1', 'elasticnet'],
