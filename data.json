@@ -38,7 +38,7 @@
         },
         "best_score": 0.8230677619122002
     },
-    "Perceptron": {
+    "PER": {
         "params": {
             "clf__alpha": 5.272631578947369e-06,
             "clf__penalty": "l1"
