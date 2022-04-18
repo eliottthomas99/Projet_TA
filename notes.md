@@ -96,14 +96,6 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 - VotingClassifier ? -> pondéré ?  GOOD (take the best one)
 
 
-
-### TODO
-
-    - rapport 
-
-- re run everything IN THE END OBVIOUSLY
-
-
 # PLAN 
 
 ## Intro    HONORINE
@@ -161,6 +153,25 @@ citer en sources : le mooc, le preprocessing de tweets sur kaggle
 - Les codes kaggle et autres dont on s'est inspiré
 - Les articles qu'on a lu pour se documenter, notament pour l'ouverture
 - La documentation de certaines library si elles sont "originales" (Optuna, sklearn.Pipeline, tweet-preprocessing, ...)
+
+
+
+
+### TODO
+
+- bibliographie plus exhaustive
+- mettre une cellule de markdown pour expliquer les tests perso, et en parler vite fait dans le rapport dans les limites ?
+- readme pour le git ?
+
+
+-  presentation du dataset + exemple de tweet 
+-  renommer la partie 'ce qui a fonctionné' 
+-  parler de tfidf dans la partie SMOTE car on ne peut pas faire smote directement sur du texte
+-  parler de pk il y a 2 voting , surtout le 2 parler des eprfs de GB et RF qui sont moins bonnes.
+-  reformuler "c'estt le meme principe que wor2vec"
+-  mettre les graphs du RNN dans le rapport
+
+
 
 
 

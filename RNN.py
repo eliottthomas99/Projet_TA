@@ -70,7 +70,7 @@ class RNN():
             L.Bidirectional(L.LSTM(units, return_sequences=True)),  # return_sequences = True means that the output will be a sequence of vectors
             L.GlobalMaxPool1D(),  # GlobalMaxPool1D() is a layer that takes the maximum value of the output of the previous layer across the sequence dimension.
             L.Dropout(dropout),  # dropout to avoid overfitting
-            L.Dense(n_neurons, activation="relu"),  # 64 neurons in the hidden layer
+            L.Dense(n_neurons, activation="relu"),  # n_neurons neurons in the hidden layer
             L.Dropout(dropout),  # Dropout is a way to prevent overfitting
             L.Dense(3)  # 3 classes
         ])
