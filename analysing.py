@@ -25,7 +25,7 @@ def compute_null_values(dataframe, name_dataframe):
     missing_data = pd.concat([null, percent_missing], axis=1, keys=['Total missing', 'Percent missing'])
 
     missing_data.reset_index(inplace=True)
-    missing_data = missing_data.rename(columns={ "index": " column name"})
+    missing_data = missing_data.rename(columns={"index": " column name"})
 
     print(f"Null Values in each column {name_dataframe} data :\n", missing_data)
 
@@ -70,7 +70,7 @@ def display_length_tweet(dataframe, name_dataframe):
     plt.savefig(f"out/characters_in_tweets_for_each_sentiment_{name_dataframe}_data.png")
     plt.show()
 
-    
+
 def display_numbers_words_for_each_tweet(dataframe, name_dataframe):
     """
     Function that allows to display a histogram of the number of words in a tweet for each sentiment
