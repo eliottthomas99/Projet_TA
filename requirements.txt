@@ -5,3 +5,8 @@ pandas
 tweet-preprocessor
 imbalanced-learn
 plotly
+optuna
+matplotlib
+plotly
+nltk
+spacy

@@ -34,11 +34,19 @@ Our database consists of five classes: Extremely Negative, Negative, Neutral, Po
 ```
 pip install -r requirements.txt
 ```
+    
+
+* If you want to use nltk lemmatizer : 
+    ```
+    import nltk
+    nltk.download('wordnet')
+    ```
 
 
 ### Executing program
 
 * run the notebook main_notebook.ipynb
+* Only run first cell of the notebook if inside a google colab environment.
 
 ## Help
 
