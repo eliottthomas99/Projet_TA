@@ -20,6 +20,12 @@ Our database consists of five classes: Extremely Negative, Negative, Neutral, Po
 * Libraries: requirements.txt
 * Tested on Linux and Windows operating systems.
 
+### Structure of the project
+
+* Root : Where the main_notebook.ipynb and python scripts are located.
+* notebooks_for_test : Where the notebooks for specific tests are located.
+* out : Where the outputs of the visualizations outputs are located.
+
 ### Installing
 
 * clone the repository:
