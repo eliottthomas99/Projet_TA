@@ -70,7 +70,7 @@ Inspiration, code snippets, etc.
 * [original-dataset](https://www.kaggle.com/datasets/datatattle/covid-19-nlp-text-classification)
 * [readme-template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
 * [rnn-inspiration](https://www.kaggle.com/code/shahraizanwar/covid19-tweets-sentiment-prediction-rnn-85-acc)
-* [tansformers](https://www.kaggle.com/code/ludovicocuoghi/twitter-sentiment-analysis-with-bert-roberta)
+* [transformers](https://www.kaggle.com/code/ludovicocuoghi/twitter-sentiment-analysis-with-bert-roberta)
 
 
 
